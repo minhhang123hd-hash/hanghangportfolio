@@ -32,72 +32,200 @@
 
 /* ============================================================
    INTRO — folder screen (index.html only)
-   Shows once per browser session.
    ============================================================ */
+
 (function () {
   const intro = document.getElementById('intro-screen');
   if (!intro) return;
 
   const alreadySeen = sessionStorage.getItem('hd_intro_seen');
+
   if (alreadySeen) {
     intro.remove();
     return;
   }
 
   const openIntro = () => {
+
+    /* ==========================================
+       🎵 START MUSIC
+       Click folder = valid user interaction
+       ========================================== */
+
+    const audio = document.getElementById('bg-audio');
+
+    if (audio) {
+      audio.volume = 0.35;
+
+      audio.play()
+        .then(() => {
+          localStorage.setItem('hd_music_on', '1');
+
+          const btn = document.getElementById('music-toggle');
+          const label = document.getElementById('music-label');
+
+          if (btn) {
+            btn.classList.add('playing');
+            btn.setAttribute('aria-pressed', 'true');
+          }
+
+          if (label) {
+            label.textContent = 'Playing — click to pause';
+          }
+        })
+        .catch((error) => {
+          console.log('Music could not start:', error);
+        });
+    }
+
+    /* ==========================================
+       📂 OPEN FOLDER
+       ========================================== */
+
     intro.classList.add('opening');
+
     sessionStorage.setItem('hd_intro_seen', '1');
-    // try to start background music on this direct user gesture
-    window.HDMusic && window.HDMusic.playFromGesture();
-    setTimeout(() => intro.classList.add('hidden'), 950);
-    setTimeout(() => intro.remove(), 1800);
+
+    setTimeout(() => {
+      intro.classList.add('hidden');
+    }, 950);
+
+    setTimeout(() => {
+      intro.remove();
+    }, 1800);
   };
 
   intro.addEventListener('click', openIntro);
+
   intro.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') openIntro();
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openIntro();
+    }
   });
+
 })();
 
+
 /* ============================================================
-   MUSIC PLAYER — persists on/off preference across pages
-   Note: browsers block true autoplay with sound until the visitor
-   interacts with the page once (a click on the folder, the nav, or
-   the play button all count).
+   MUSIC PLAYER
    ============================================================ */
+
 (function () {
+
   const audio = document.getElementById('bg-audio');
   const btn = document.getElementById('music-toggle');
   const label = document.getElementById('music-label');
+
   if (!audio || !btn) return;
 
   const KEY = 'hd_music_on';
 
+  /* ---------- UI ---------- */
+
   const setUI = (playing) => {
+
     btn.classList.toggle('playing', playing);
-    btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
-    label.textContent = playing ? 'Playing — click to pause' : 'Play background music';
+
+    btn.setAttribute(
+      'aria-pressed',
+      playing ? 'true' : 'false'
+    );
+
+    if (label) {
+      label.textContent = playing
+        ? 'Playing — click to pause'
+        : 'Play background music';
+    }
   };
+
+
+  /* ---------- PLAY ---------- */
 
   const play = () => {
-    audio.play().then(() => { setUI(true); localStorage.setItem(KEY, '1'); })
-      .catch(() => setUI(false));
+
+    audio.volume = 0.35;
+
+    audio.play()
+      .then(() => {
+
+        setUI(true);
+
+        localStorage.setItem(KEY, '1');
+
+      })
+      .catch(() => {
+
+        setUI(false);
+
+      });
+
   };
-  const pause = () => { audio.pause(); setUI(false); localStorage.setItem(KEY, '0'); };
 
-  btn.addEventListener('click', () => (audio.paused ? play() : pause()));
 
-  // expose so the intro-folder click can start music on that same gesture
-  window.HDMusic = {
-    playFromGesture: () => { if (localStorage.getItem(KEY) !== '0') play(); }
-  };
+  /* ---------- PAUSE ---------- */
 
-  // resume automatically on later page navigations if it was on
-  if (localStorage.getItem(KEY) === '1' && !document.getElementById('intro-screen')) {
-    play();
-  } else {
+  const pause = () => {
+
+    audio.pause();
+
     setUI(false);
+
+    localStorage.setItem(KEY, '0');
+
+  };
+
+
+  /* ---------- MUSIC BUTTON ---------- */
+
+  btn.addEventListener('click', (e) => {
+
+    e.stopPropagation();
+
+    if (audio.paused) {
+      play();
+    } else {
+      pause();
+    }
+
+  });
+
+
+  /* ---------- EXPOSE ---------- */
+
+  window.HDMusic = {
+
+    playFromGesture: () => {
+
+      /*
+       * Không ép người dùng bật lại nếu
+       * họ đã từng tắt nhạc.
+       */
+
+      if (localStorage.getItem(KEY) !== '0') {
+        play();
+      }
+
+    }
+
+  };
+
+
+  /* ---------- PAGE LOAD ---------- */
+
+  if (
+    localStorage.getItem(KEY) === '1' &&
+    !document.getElementById('intro-screen')
+  ) {
+
+    play();
+
+  } else {
+
+    setUI(false);
+
   }
+
 })();
 
 /* ============================================================
