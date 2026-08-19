@@ -185,12 +185,19 @@ ul{ margin:0; padding:0; list-style:none; }
 .intro-bg{ position:absolute; inset:0; z-index:0; }
 .intro-bg img{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-  opacity:0; transition:opacity 1.1s var(--ease);
+  opacity:1; transition:opacity 1.1s var(--ease);
 }
 .intro-bg.media-slot img.loaded{ opacity:.5; }
 .intro-overlay{
-  position:absolute; inset:0; z-index:1;
-  background:linear-gradient(180deg, rgba(22,35,63,.55) 0%, rgba(22,35,63,.88) 100%);
+  position:absolute;
+  inset:0;
+  z-index:1;
+
+  background:linear-gradient(
+    180deg,
+    rgba(22,35,63,.25) 0%,
+    rgba(22,35,63,.45) 100%
+  );
 }
 .folder-wrap{ position:relative; z-index:2; text-align:center; cursor:pointer; user-select:none; }
 .folder{
