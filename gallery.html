@@ -44,19 +44,19 @@
 
       <!-- 📌 DESIGN ITEM — duplicate this block for each poster/leaflet/POSM piece.
            Upload the image to assets/images/gallery-design/ and update src + caption. -->
-      <div class="gallery-item" data-type="design">
+      <div class="gallery-item size-tall" data-type="design">
         <div class="gallery-ph media-slot"><span class="ph-note">[ Upload image →<br>assets/images/gallery-design/asset-01.jpg ]</span><img src="assets/images/gallery-design/asset-01.jpg" alt="Design asset"></div>
         <div class="gallery-caption"><b>Poster title</b><span>Design · Illustrator</span></div>
       </div>
 
-      <div class="gallery-item" data-type="design">
+      <div class="gallery-item size-square" data-type="design">
         <div class="gallery-ph media-slot"><span class="ph-note">[ Upload image →<br>assets/images/gallery-design/asset-02.jpg ]</span><img src="assets/images/gallery-design/asset-02.jpg" alt="Design asset"></div>
         <div class="gallery-caption"><b>Leaflet title</b><span>Design · Canva</span></div>
       </div>
 
       <!-- 📌 VIDEO ITEM — upload the .mp4 to assets/videos/ and swap the <source> src.
            Video is muted + autoplays/pauses as it scrolls in/out of view (see js/main.js). -->
-      <div class="gallery-item video media-slot" data-type="video">
+      <div class="gallery-item video media-slot size-vertical" data-type="video">
         <span class="ph-note">[ Upload video →<br>assets/videos/reel-01.mp4 ]</span>
         <video muted loop playsinline preload="metadata" poster="">
           <source src="assets/videos/reel-01.mp4" type="video/mp4">
@@ -65,12 +65,12 @@
         <div class="gallery-caption"><b>Reel title</b><span>Video · CapCut</span></div>
       </div>
 
-      <div class="gallery-item" data-type="design">
+      <div class="gallery-item size-wide" data-type="design">
         <div class="gallery-ph media-slot"><span class="ph-note">[ Upload image →<br>assets/images/gallery-design/asset-03.jpg ]</span><img src="assets/images/gallery-design/asset-03.jpg" alt="Design asset"></div>
         <div class="gallery-caption"><b>Invitation card</b><span>Design · Illustrator</span></div>
       </div>
 
-      <div class="gallery-item video media-slot" data-type="video">
+      <div class="gallery-item video media-slot size-vertical" data-type="video">
         <span class="ph-note">[ Upload video →<br>assets/videos/reel-02.mp4 ]</span>
         <video muted loop playsinline preload="metadata" poster="">
           <source src="assets/videos/reel-02.mp4" type="video/mp4">
@@ -79,7 +79,7 @@
         <div class="gallery-caption"><b>Reel title</b><span>Video · CapCut</span></div>
       </div>
 
-      <div class="gallery-item" data-type="design">
+      <div class="gallery-item size-portrait" data-type="design">
         <div class="gallery-ph media-slot"><span class="ph-note">[ Upload image →<br>assets/images/gallery-design/asset-04.jpg ]</span><img src="assets/images/gallery-design/asset-04.jpg" alt="Design asset"></div>
         <div class="gallery-caption"><b>POSM set</b><span>Design · Photoshop</span></div>
       </div>
@@ -89,7 +89,7 @@
         <div class="gallery-caption"><b>Social media asset</b><span>Design · Canva</span></div>
       </div>
 
-      <div class="gallery-item video media-slot" data-type="video">
+      <div class="gallery-item video media-slot size-wide" data-type="video">
         <span class="ph-note">[ Upload video →<br>assets/videos/reel-03.mp4 ]</span>
         <video muted loop playsinline preload="metadata" poster="">
           <source src="assets/videos/reel-03.mp4" type="video/mp4">
@@ -98,7 +98,7 @@
         <div class="gallery-caption"><b>Reel title</b><span>Video · CapCut</span></div>
       </div>
 
-      <div class="gallery-item" data-type="design">
+      <div class="gallery-item size-square" data-type="design">
         <div class="gallery-ph media-slot"><span class="ph-note">[ Upload image →<br>assets/images/gallery-design/asset-06.jpg ]</span><img src="assets/images/gallery-design/asset-06.jpg" alt="Design asset"></div>
         <div class="gallery-caption"><b>Brochure spread</b><span>Design · Illustrator</span></div>
       </div>
@@ -106,7 +106,7 @@
     </div>
 
     <div class="reveal center mt-lg" style="background:var(--white); border:1px dashed var(--line); border-radius:var(--radius-md); padding:34px;">
-      <p style="margin:0; color:#6b7590; font-size:.92rem;">📌 <strong></p>
+      <p style="margin:0; color:#6b7590; font-size:.92rem;">📌 <strong>Note to self:</strong> add as many <code>.gallery-item</code> blocks as needed in <code>gallery.html</code>. Images → <code>assets/images/gallery-design/</code>. Videos → <code>assets/videos/</code>. Keep filenames simple and lowercase (e.g. <code>poster-tet-2026.jpg</code>).</p>
     </div>
 
   </div>

@@ -100,6 +100,23 @@
   }
 })();
 
+/* ============================================================
+   MEDIA SLOT auto-detect — reveals the real photo/video the
+   instant it loads successfully; leaves the placeholder note
+   visible until then. Nothing to configure, just upload files.
+   ============================================================ */
+(function () {
+  document.querySelectorAll('.media-slot img').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) { img.classList.add('loaded'); return; }
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    img.addEventListener('error', () => img.classList.remove('loaded'));
+  });
+  document.querySelectorAll('.media-slot video').forEach(video => {
+    video.addEventListener('loadeddata', () => video.classList.add('loaded'));
+    video.addEventListener('error', () => video.classList.remove('loaded'));
+  });
+})();
+
 /* ---------- Gallery filter (gallery.html) ---------- */
 (function () {
   const filters = document.querySelectorAll('.filter-btn');

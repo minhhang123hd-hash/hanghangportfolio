@@ -352,7 +352,19 @@ ul{ margin:0; padding:0; list-style:none; }
   display:flex; align-items:center; justify-content:center; color:var(--navy); text-align:center;
   font-size:.8rem; padding:18px; font-weight:600;
 }
+/* ---- Frame size variants — add ONE of these classes to a .gallery-item to change its shape ---- */
+.gallery-item.size-square .gallery-ph{ aspect-ratio:1/1; }
+.gallery-item.size-portrait .gallery-ph{ aspect-ratio:3/4; }
+.gallery-item.size-tall .gallery-ph{ aspect-ratio:2/3; }
+.gallery-item.size-wide .gallery-ph{ aspect-ratio:16/9; }
+.gallery-item.size-panorama .gallery-ph{ aspect-ratio:21/9; }
 .gallery-item.video .gallery-ph{ aspect-ratio:16/9; background:linear-gradient(155deg,var(--navy),var(--navy-ink)); color:var(--cream-deep); }
+.gallery-item.video{ aspect-ratio:16/9; background:linear-gradient(155deg,var(--navy),var(--navy-ink)); }
+.gallery-item.video .ph-note{ color:var(--cream-deep); font-size:.8rem; font-weight:600; }
+/* ---- Video frame size variants — add ONE of these classes next to "gallery-item video" ---- */
+.gallery-item.video.size-vertical{ aspect-ratio:9/16; }
+.gallery-item.video.size-square{ aspect-ratio:1/1; }
+.gallery-item.video.size-wide{ aspect-ratio:16/9; }
 .gallery-caption{ padding:16px 18px; }
 .gallery-caption b{ display:block; font-size:.92rem; }
 .gallery-caption span{ font-size:.78rem; color:#6b7590; }
@@ -437,6 +449,22 @@ ul{ margin:0; padding:0; list-style:none; }
   opacity:0; transform:translateX(-8px); transition:.35s var(--ease);
 }
 #music-player:hover #music-label{ opacity:1; transform:translateX(0); }
+
+/* ============================================================
+   MEDIA SLOT — auto-swaps placeholder note for the real
+   image/video the moment a correctly-named file loads.
+   No code edits needed after uploading assets.
+   ============================================================ */
+.media-slot{ position:relative; overflow:hidden; }
+.media-slot .ph-note{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  text-align:center; margin:0; padding:16px; z-index:1;
+}
+.media-slot img, .media-slot video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity .6s var(--ease); z-index:2;
+}
+.media-slot img.loaded, .media-slot video.loaded{ opacity:1; }
 
 /* ---------- Small utils ---------- */
 .center{ text-align:center; }
