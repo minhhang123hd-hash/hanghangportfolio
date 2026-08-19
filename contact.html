@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Hang Doan</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="index.html" class="nav-logo">Hang Doan <span>.</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  <a href="contact.html" class="nav-cta">Let's work together</a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="hero" style="min-height:44vh; padding:150px 0 40px;">
+  <div class="container">
+    <div class="reveal in max-620">
+      <span class="hero-eyebrow">Let's work together</span>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Open to new <em>opportunities.</em></h1>
+      <p class="hero-tagline">Currently seeking a Marketing / Business internship where I can bring project leadership and creative execution to a real team. Reach out — I reply fast.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container contact-grid">
+
+    <div class="reveal">
+      <span class="eyebrow">send a message</span>
+      <h2>Say hello</h2>
+      <!-- Static form preview — connect to Formspree / Netlify Forms / your backend of choice by changing the form action -->
+      <form id="contact-form" class="mt-md">
+        <div class="grid-2">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@email.com">
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Internship opportunity, collaboration, ...">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell me a bit about the opportunity..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid">Send message →</button>
+      </form>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="contact-info-card">
+        <h3>Contact details</h3>
+        <div class="contact-info-row">
+          <div><b>Email</b><span>minhhang123.hd@gmail.com</span></div>
+        </div>
+        <div class="contact-info-row">
+          <div><b>Phone</b><span>0389 191 122</span></div>
+        </div>
+        <div class="contact-info-row">
+          <div><b>Location</b><span>58 Nguyễn Khánh Toàn, Cầu Giấy, Hà Nội</span></div>
+        </div>
+        <div class="contact-info-row">
+          <div><b>Socials</b><span>LinkedIn · Zalo</span></div>
+        </div>
+
+        <div class="cv-download-box">
+          <div>
+            <b>Full CV — PDF</b>
+            <span>One-page summary of everything above</span>
+          </div>
+          <!-- 📌 ASSET: upload the final CV PDF to assets/cv/Hang-Doan-CV.pdf -->
+          <a href="assets/cv/Hang-Doan-CV.pdf" download class="btn btn-gold" style="border-color:var(--navy-ink);">Download ↓</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-tight section-navy">
+  <div class="container center">
+    <span class="eyebrow" style="color:var(--gold);">thank you</span>
+    <h2>Looking forward to building something great together.</h2>
+    <p class="max-620" style="margin:0 auto 26px; opacity:.8;">Whether it's an internship, a project collaboration, or just a conversation — my inbox is open.</p>
+    <a href="mailto:minhhang123.hd@gmail.com" class="btn btn-ghost-light">minhhang123.hd@gmail.com</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hang Doan.</div>
+        <p style="max-width:280px; opacity:.7; font-size:.9rem; margin-top:10px;">Marketing Specialist &amp; Project Leader based in Hanoi, Vietnam.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="footer-links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Zalo</a></li>
+        <li><a href="mailto:minhhang123.hd@gmail.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hang Doan. All rights reserved.</span>
+      <span>Designed &amp; built for opportunities that matter.</span>
+    </div>
+  </div>
+</footer>
+
+<audio id="bg-audio" loop preload="none">
+  <source src="assets/audio/bg-music.mp3" type="audio/mpeg">
+</audio>
+<div id="music-player">
+  <button id="music-toggle" aria-pressed="false" aria-label="Toggle background music">
+    <div class="disc-ring"></div>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+  </button>
+  <span id="music-label">Play background music</span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Hang Doan</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <a href="index.html" class="nav-logo">Hang Doan <span>.</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="contact.html" class="nav-cta">Let's work together</a>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="hero" style="min-height:48vh; padding:150px 0 50px;">
+  <div class="container">
+    <div class="reveal in max-620">
+      <span class="hero-eyebrow">Design & media</span>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Gallery</h1>
+      <p class="hero-tagline">Standalone design and video work — posters, leaflets, invitations, POSM, and short-form video, outside of the three main case studies. Videos play automatically as you scroll.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+    </div>
+
+    <div class="gallery-grid reveal">
+
+      <!-- 📌 DESIGN ITEM — duplicate this block for each poster/leaflet/POSM piece.
+           Upload the image to assets/images/gallery-design/ and update src + caption. -->
+      <div class="gallery-item" data-type="design">
+        <div class="gallery-ph">[ Upload image →<br>assets/images/gallery-design/asset-01.jpg ]</div>
+        <div class="gallery-caption"><b>Poster title</b><span>Design · Illustrator</span></div>
+      </div>
+
+      <div class="gallery-item" data-type="design">
+        <div class="gallery-ph">[ Upload image →<br>assets/images/gallery-design/asset-02.jpg ]</div>
+        <div class="gallery-caption"><b>Leaflet title</b><span>Design · Canva</span></div>
+      </div>
+
+      <!-- 📌 VIDEO ITEM — upload the .mp4 to assets/videos/ and swap the <source> src.
+           Video is muted + autoplays/pauses as it scrolls in/out of view (see js/main.js). -->
+      <div class="gallery-item video" data-type="video">
+        <video muted loop playsinline preload="metadata" poster="">
+          <source src="assets/videos/reel-01.mp4" type="video/mp4">
+        </video>
+        <span class="play-badge">▶</span>
+        <div class="gallery-caption"><b>Reel title</b><span>Video · CapCut</span></div>
+      </div>
+
+      <div class="gallery-item" data-type="design">
+        <div class="gallery-ph">[ Upload image →<br>assets/images/gallery-design/asset-03.jpg ]</div>
+        <div class="gallery-caption"><b>Invitation card</b><span>Design · Illustrator</span></div>
+      </div>
+
+      <div class="gallery-item video" data-type="video">
+        <video muted loop playsinline preload="metadata" poster="">
+          <source src="assets/videos/reel-02.mp4" type="video/mp4">
+        </video>
+        <span class="play-badge">▶</span>
+        <div class="gallery-caption"><b>Reel title</b><span>Video · CapCut</span></div>
+      </div>
+
+      <div class="gallery-item" data-type="design">
+        <div class="gallery-ph">[ Upload image →<br>assets/images/gallery-design/asset-04.jpg ]</div>
+        <div class="gallery-caption"><b>POSM set</b><span>Design · Photoshop</span></div>
+      </div>
+
+      <div class="gallery-item" data-type="design">
+        <div class="gallery-ph">[ Upload image →<br>assets/images/gallery-design/asset-05.jpg ]</div>
+        <div class="gallery-caption"><b>Social media asset</b><span>Design · Canva</span></div>
+      </div>
+
+      <div class="gallery-item video" data-type="video">
+        <video muted loop playsinline preload="metadata" poster="">
+          <source src="assets/videos/reel-03.mp4" type="video/mp4">
+        </video>
+        <span class="play-badge">▶</span>
+        <div class="gallery-caption"><b>Reel title</b><span>Video · CapCut</span></div>
+      </div>
+
+      <div class="gallery-item" data-type="design">
+        <div class="gallery-ph">[ Upload image →<br>assets/images/gallery-design/asset-06.jpg ]</div>
+        <div class="gallery-caption"><b>Brochure spread</b><span>Design · Illustrator</span></div>
+      </div>
+
+    </div>
+
+    <div class="reveal center mt-lg" style="background:var(--white); border:1px dashed var(--line); border-radius:var(--radius-md); padding:34px;">
+      <p style="margin:0; color:#6b7590; font-size:.92rem;">📌 <strong>Note to self:</strong> add as many <code>.gallery-item</code> blocks as needed in <code>gallery.html</code>. Images → <code>assets/images/gallery-design/</code>. Videos → <code>assets/videos/</code>. Keep filenames simple and lowercase (e.g. <code>poster-tet-2026.jpg</code>).</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Hang Doan.</div>
+        <p style="max-width:280px; opacity:.7; font-size:.9rem; margin-top:10px;">Marketing Specialist &amp; Project Leader based in Hanoi, Vietnam.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="footer-links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Zalo</a></li>
+        <li><a href="mailto:minhhang123.hd@gmail.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hang Doan. All rights reserved.</span>
+      <span>Designed &amp; built for opportunities that matter.</span>
+    </div>
+  </div>
+</footer>
+
+<audio id="bg-audio" loop preload="none">
+  <source src="assets/audio/bg-music.mp3" type="audio/mpeg">
+</audio>
+<div id="music-player">
+  <button id="music-toggle" aria-pressed="false" aria-label="Toggle background music">
+    <div class="disc-ring"></div>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+  </button>
+  <span id="music-label">Play background music</span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
