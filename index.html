@@ -232,18 +232,23 @@
 </footer>
 
 <!-- ============ MUSIC PLAYER ============ -->
-<!-- 📌 ASSET: upload a looping instrumental track to assets/audio/bg-music.mp3 -->
-<audio id="bg-audio" loop preload="none">
+
+<audio id="bg-audio" loop preload="auto" autoplay>
   <source src="assets/audio/bg-music.mp3" type="audio/mpeg">
 </audio>
+
 <div id="music-player">
-  <button id="music-toggle" aria-pressed="false" aria-label="Toggle background music">
+  <button id="music-toggle"
+          aria-pressed="true"
+          aria-label="Toggle background music">
     <div class="disc-ring"></div>
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    </svg>
   </button>
-  <span id="music-label">Play background music</span>
+
+  <span id="music-label">Music playing</span>
 </div>
 
 <script src="js/main.js"></script>
-</body>
-</html>
