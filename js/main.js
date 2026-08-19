@@ -276,15 +276,39 @@
   videos.forEach(v => io.observe(v));
 })();
 
-/* ---------- Contact form (static — swap action for Formspree/Netlify) ---------- */
+/* ---------- Contact form (Formspree AJAX Integration) ---------- */
 (function () {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
+  
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.textContent = "Sent — thank you! ✓";
-    setTimeout(() => { btn.textContent = original; form.reset(); }, 2600);
+    const originalText = btn.textContent;
+    
+    btn.textContent = "Sending...";
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.textContent = "Sent — thank you! ✓";
+        form.reset();
+      } else {
+        btn.textContent = "Error! Try again.";
+      }
+    } catch (error) {
+      btn.textContent = "Error! Try again.";
+    }
+
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }, 3000);
   });
 })();
